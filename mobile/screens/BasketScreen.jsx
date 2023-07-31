@@ -12,7 +12,6 @@ import {
 import React, { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  removeDish,
   removeDishFromBasket,
   selectBasketItems,
 } from "../redux/slices/basketSlice";
@@ -21,10 +20,12 @@ import Currency from "react-currency-formatter";
 import { TrashIcon } from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
 import { generateImgUrl } from "../sanity";
+import { getRestaurantInfo } from "../redux/slices/restuarantSlice";
 
 const BasketScreen = () => {
   const [groupedItems, setGroupedItems] = useState([]);
   const items = useSelector(selectBasketItems);
+  const restaurant = useSelector(getRestaurantInfo);
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const deliveryFee = 5.5;
@@ -50,7 +51,7 @@ const BasketScreen = () => {
       <View className="flex-row items-center justify-center border-b-[0.5px] border-[#00ccbb] bg-white px-4 py-2 shadow-lg">
         <View className="">
           <Text className="text-center text-xl font-bold">Restaurant</Text>
-          <Text className=" text-center text-lg text-gray-400">Restaurant</Text>
+          <Text className=" text-center text-lg text-gray-400">{restaurant?.name}</Text>
         </View>
 
         <TouchableOpacity
@@ -128,7 +129,7 @@ const BasketScreen = () => {
           </Text>
         </View>
         <TouchableOpacity
-          onPress={() => navigation.navigate("OrderInProgress")}
+          onPress={() => navigation.navigate("Order")}
         >
           <View className="mx-auto w-full flex-row items-center rounded-md bg-[#00ccbb] px-4 py-3">
             <Text className="flex-1 text-center text-xl font-extrabold text-white ">

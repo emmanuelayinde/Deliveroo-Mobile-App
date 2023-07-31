@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#00ccbb"
-      }
+      },
+      "package": "com.solution247.deliveroo_app"
     },
     "web": {
       "favicon": "./assets/logo.png"

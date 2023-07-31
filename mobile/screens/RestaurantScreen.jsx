@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { generateImgUrl } from "../sanity";
 import {
@@ -11,16 +11,18 @@ import {
 } from "react-native-heroicons/outline";
 import Dishes from "../components/dishies";
 import Currency from "react-currency-formatter";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   selectBasketItems,
   basketItemsTotalAmount,
 } from "../redux/slices/basketSlice";
+import { addToRestaurantt } from "../redux/slices/restuarantSlice";
 
 const RestaurantScreen = () => {
   const basketItems = useSelector(selectBasketItems);
   const basketItemsTotal = useSelector(basketItemsTotalAmount);
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -28,6 +30,10 @@ const RestaurantScreen = () => {
   }, []);
 
   const { params } = useRoute();
+
+  useEffect(() => {
+    dispatch(addToRestaurantt({ ...params }));
+  }, [params]);
 
   // const
 
