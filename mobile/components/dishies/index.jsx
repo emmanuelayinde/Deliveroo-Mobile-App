@@ -4,7 +4,7 @@ import DishCard from "./DishCard";
 
 const Dishes = ({ dishes }) => {
   return (
-    <View className="bg-white px-4 py-2">
+    <View className="bg-white px-4 pt-2 pb-20">
       {dishes?.map((dish) => (
         <DishCard
           key={dish?._id}

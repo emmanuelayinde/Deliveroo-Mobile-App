@@ -15,7 +15,7 @@ const FeaturedCard = ({ url, name, address, rating, restaurantData }) => {
         <Text className="text-lg font-semibold">{name}</Text>
         <View className="flex-row items-center space-x-1 ">
           <Text className="font-medium text-gray-400">
-            <StarIcon color={"#0f0"} size={20} />
+            <StarIcon color={"gray"} size={20} />
           </Text>
           <Text className="font-medium text-gray-400">{rating}</Text>
           <Text className="h-[4px] w-[4px] rounded-full bg-gray-400"></Text>

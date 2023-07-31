@@ -10,7 +10,7 @@ const Featured = ({ id, restaurants, title, description }) => {
       <View className="px-2">
         <View className="flex-row items-center justify-between text-gray-300 ">
           <Text className="text-lg font-semibold">{title}</Text>
-          <ArrowRightIcon color={"#0f0"} size={"20"} />
+          <ArrowRightIcon color={"gray"} size={"20"} />
         </View>
         <View className="flex-row items-center space-x-2 text-gray-300 ">
           <Text className="text-sm font-medium text-gray-400">

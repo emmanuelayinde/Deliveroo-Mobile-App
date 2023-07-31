@@ -23,15 +23,26 @@ export const basketSlice = createSlice({
       }
       state.items = newBasketItems;
     },
+    removeDishFromBasket: (state, action) => {
+      const newItems = state.items.filter(
+        (item) => item.id !== action.payload.id,
+      );
+      state.items = [...newItems];
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToBasket, removeFromBasket } = basketSlice.actions;
+export const { addToBasket, removeFromBasket, removeDishFromBasket } =
+  basketSlice.actions;
 export const selectBasketItems = (state) => state.basket.items;
 export const selectOneBasketItem = (state, id) => {
   if (state.basket.items)
     return state.basket.items.filter((item) => item.id === id);
   else return [];
 };
+export const basketItemsTotalAmount = (state) => {
+  return state.basket.items.reduce((total, item) => total + item.price, 0);
+};
+
 export default basketSlice.reducer;

@@ -39,7 +39,7 @@ const DishCard = ({ name, description, image, price, id }) => {
     <>
       <TouchableOpacity
         onPress={() => setIsPressed(!isPressed)}
-        className="w-full flex-row items-start justify-between  overflow-x-hidden  pt-2"
+        className="w-full flex-row items-start justify-between  overflow-x-hidden mb-2 pt-2"
       >
         <View className="mr-6 flex-1 flex-wrap gap-1.5 ">
           <Text className="text-2xl font-medium text-gray-700">{name}</Text>
