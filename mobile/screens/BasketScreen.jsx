@@ -129,7 +129,7 @@ const BasketScreen = () => {
           </Text>
         </View>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Order")}
+          onPress={() => navigation.navigate("OrderInProgress")}
         >
           <View className="mx-auto w-full flex-row items-center rounded-md bg-[#00ccbb] px-4 py-3">
             <Text className="flex-1 text-center text-xl font-extrabold text-white ">
